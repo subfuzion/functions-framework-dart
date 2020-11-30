@@ -63,6 +63,9 @@ class _FunctionsFrameworkBuilder implements Builder {
           target,
           annotatedElement.element.name,
         ));
+        print('******[ files ]******');
+        files.forEach(print);
+        print('*********************');
       }
     }
 
@@ -103,6 +106,12 @@ class _Entry {
     this.target,
     this.functionName,
   );
+
+  @override
+  String toString() => '_Entry { '
+      'uri: $uri, '
+      'target: $target, '
+      'functionName: $functionName }';
 }
 
 String _prefixFromIndex(int index) =>

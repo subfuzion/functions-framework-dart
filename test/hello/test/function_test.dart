@@ -72,6 +72,37 @@ void main() {
       await _finish(proc);
     });
 
+    test('explicit function target - command line', () async {
+      const port = '8080';
+      final proc = await _start(
+        arguments: [
+          '--target',
+          'handleGet2',
+        ],
+      );
+
+      final response = await get('http://localhost:$port');
+      expect(response.statusCode, 200);
+      expect(response.body, 'ok');
+
+      await _finish(proc);
+    });
+
+    test('explicit function target - environment variable', () async {
+      const port = '8080';
+      final proc = await _start(
+        env: {
+          'FUNCTION_TARGET': 'handleGet2',
+        },
+      );
+
+      final response = await get('http://localhost:$port');
+      expect(response.statusCode, 200);
+      expect(response.body, 'ok');
+
+      await _finish(proc);
+    });
+
     group('environment', () {
       test('good environment', () async {
         const port = '8888';

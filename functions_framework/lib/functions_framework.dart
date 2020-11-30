@@ -3,10 +3,24 @@
 // governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:meta/meta_meta.dart';
+import 'src/function_config.dart';
+
+enum HttpMethod {
+  get,
+  head,
+  post,
+  put,
+  delete,
+  connect,
+  options,
+  trace,
+  patch,
+}
 
 @Target({TargetKind.function})
 class CloudFunction {
-  final String target;
+  //final String target;
+  final dynamic method;
 
-  const CloudFunction([this.target = 'function']);
+  const CloudFunction({this.method = HttpMethod.get});
 }
