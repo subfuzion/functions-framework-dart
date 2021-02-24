@@ -28,9 +28,9 @@ const _functionTargets = <FunctionTarget>{
   ),
 };
 
-Map<String, dynamic> _factory0(Object json) {
+function_library.RedisCommandRequest _factory0(Object json) {
   if (json is Map<String, dynamic>) {
-    return json;
+    return function_library.RedisCommandRequest.fromJson(json);
   }
   throw BadRequestException(
     400,

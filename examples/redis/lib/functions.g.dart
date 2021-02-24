@@ -8,6 +8,20 @@ part of 'functions.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+RedisCommandRequest _$RedisCommandRequestFromJson(Map<String, dynamic> json) {
+  return RedisCommandRequest(
+    command: json['command'] as String,
+    data: json['data'] as String,
+  );
+}
+
+Map<String, dynamic> _$RedisCommandRequestToJson(
+        RedisCommandRequest instance) =>
+    <String, dynamic>{
+      'command': instance.command,
+      'data': instance.data,
+    };
+
 RedisCommandResponse _$RedisCommandResponseFromJson(Map<String, dynamic> json) {
   return RedisCommandResponse(
     command: json['command'] as String,
