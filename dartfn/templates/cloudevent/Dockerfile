@@ -13,6 +13,6 @@ RUN dart compile exe bin/server.dart -o bin/server
 
 ########################
 FROM scratch
-COPY --from=0 /app/bin/server /app/bin/server
+COPY --from=build /app/bin/server /app/bin/server
 EXPOSE 8080
 ENTRYPOINT ["/app/bin/server", "--signature-type=cloudevent"]
